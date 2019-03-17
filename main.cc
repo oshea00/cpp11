@@ -282,21 +282,17 @@ bool isShorter(const string &s1, const string &s2) {
     return s1.size() < s2.size();
 }
 void animalplay() {
-    Animal animal;
-    Dog dog;
-    BigDog bigdog;
-    BigDog rotweiller("ARRRGGG! WOOF!!");
     vector<shared_ptr<Animal>> animals = {
-		make_shared<Animal>(animal),
-        make_shared<Dog>(dog),
-        make_shared<BigDog>(bigdog),
-        make_shared<BigDog>(rotweiller)
+		make_shared<Animal>(),
+        make_shared<Dog>(),
+        make_shared<BigDog>(),
+        make_shared<BigDog>("ARRGHH! WOOF!")
     };
     cout << "Dogs are animals:" << endl;
     for (auto a : animals) {
         a->says();
     }
-    Animal somedog = bigdog;
+    Animal somedog = *animals[2];
     somedog.says();
     cout << "Animals created: " << Animal::animals_created << endl;
 }
