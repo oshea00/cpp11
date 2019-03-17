@@ -292,7 +292,7 @@ void animalplay() {
     for (auto a : animals) {
         a->says();
     }
-    Animal somedog = *animals[2];
-    somedog.says();
+    Animal animal = *animals[2];
+    animal.says();
     cout << "Animals created: " << Animal::animals_created << endl;
 }

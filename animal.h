@@ -12,7 +12,7 @@
 #include <iostream>
 
 class Animal {
-private:
+protected:
     std::string sound;
 public:
     static int animals_created;
@@ -25,17 +25,23 @@ public:
 int Animal::animals_created(0);
 
 void Animal::says() {
-    std::cout << sound << std::endl;
+    std::cout << "Animal says: " << sound << std::endl;
 }
 
 class Dog : public Animal {
 public:
     Dog(std::string sound = "woof") : Animal(sound) { }
+    void says() override {
+        std::cout << "Dog says: " << sound << std::endl;
+    }
 };
 
 class BigDog : public Dog {
 public:
     BigDog(std::string sound = "WOOF") : Dog(sound) { }
+    void says() override {
+        std::cout << "Big Dog says: " << sound << std::endl;
+    }
 };
 
 #endif /* animals_h */
